@@ -1,24 +1,8 @@
-Numarul zonelor trecute: 3
+Numarul zonelor trecute: 1
 Traseu:
 
 0 0 0 0 0 
-0 1 0 0 0 
-0 1 0 0 0 
-0 1 0 0 0 
-
-Numarul zonelor trecute: 5
-Traseu:
-
-0 0 0 0 0 
-0 1 0 0 0 
-0 1 1 1 1 
-0 0 0 0 0 
-
-Numarul zonelor trecute: 2
-Traseu:
-
-0 1 0 0 0 
-0 1 0 0 0 
+0 0 0 0 1 
 0 0 0 0 0 
 0 0 0 0 0 
 

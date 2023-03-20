@@ -31,7 +31,7 @@ void afisareDateInitiale(void)
 
 bool solutie(int i, int j)
 {
-    if (i == n || i == 1 || j == m || j == 1)  // verifica daca bila a ajuns pe margine
+    if (i == n || i == 1 || j == m || j == 1) // verifica daca bila a ajuns pe margine
         return true;
     return false;
 }
@@ -40,7 +40,9 @@ void tiparSolutie(int k)
 {
     ofstream fout;
     fout.open("traseu.txt", ios::app);
-    fout << "Numarul zonelor trecute: " << k << '\n' << "Traseu:" << "\n\n";
+    fout << "Numarul zonelor trecute: " << k << '\n'
+         << "Traseu:"
+         << "\n\n";
     for (unsigned int i = 1; i <= n; i++)
     {
         for (unsigned int j = 1; j <= m; j++)
@@ -60,8 +62,11 @@ void resetFisierTraseu(void)
 
 void back(int i, int j, int k)
 {
-    if (solutie(i,j)) // daca am ajuns la margine -> soltutie -> calculam nr. maxim de mutari
+    if (solutie(i, j)) // daca am ajuns la margine -> soltutie -> calculam nr. maxim de mutari
     {
+        if (k == 1)
+            traseu[i][j] = true;
+            
         tiparSolutie(k);
 
         if (k > maxim)
@@ -81,9 +86,9 @@ void back(int i, int j, int k)
         traseu[i][j] = true;
         if (tabla[i + 1][j] < tabla[i][j])
         {
-            traseu[i + 1][j] = true;    // marcam pozitia pe unde am trecut
+            traseu[i + 1][j] = true; // marcam pozitia pe unde am trecut
             back(i + 1, j, k + 1);
-            traseu[i + 1][j] = false;   // resetam pozitia
+            traseu[i + 1][j] = false; // resetam pozitia
         }
 
         if (tabla[i - 1][j] < tabla[i][j])
@@ -116,14 +121,21 @@ int main(void)
     resetFisierTraseu();
 
     back(istart, jstart, 1);
-    cout << "Numarul maxim de zone trecute este: " << maxim << '\n' << "Traseu: " << "\n\n";
 
-    for (unsigned int i = 1; i <= n; i++)
+    if (maxim > 0)
     {
-        for (unsigned int j = 1; j <= m; j++)
-            cout << traseuMax[i][j] << " ";
-        cout << '\n';
-    }
+        cout << "Numarul maxim de zone trecute este: " << maxim << '\n'
+             << "Traseu: "
+             << "\n\n";
 
+        for (unsigned int i = 1; i <= n; i++)
+        {
+            for (unsigned int j = 1; j <= m; j++)
+                cout << traseuMax[i][j] << " ";
+            cout << '\n';
+        }
+    }
+    else
+        cout << "Nu exista trasee posibile!";
     return 0;
 }
