@@ -116,10 +116,7 @@ int main(void)
     resetFisierTraseu();
 
     back(istart, jstart, 1);
-
-    cout  << "_____________________________________" << "\n\n"
-          << "Numarul maxim de zone trecute este: " 
-          << maxim << '\n' << "Traseu: " << "\n\n";
+    cout << "Numarul maxim de zone trecute este: " << maxim << '\n' << "Traseu: " << "\n\n";
 
     for (unsigned int i = 1; i <= n; i++)
     {
@@ -127,6 +124,6 @@ int main(void)
             cout << traseuMax[i][j] << " ";
         cout << '\n';
     }
-    
+
     return 0;
 }
