@@ -38,7 +38,8 @@ bool solutie(int i, int j)
 
 void tiparSolutie(int k)
 {
-    ofstream fout("traseu.txt");
+    ofstream fout;
+    fout.open("traseu.txt", ios::app);
     fout << "Numarul zonelor trecute: " << k << '\n' << "Traseu:" << "\n\n";
     for (unsigned int i = 1; i <= n; i++)
     {
@@ -47,6 +48,13 @@ void tiparSolutie(int k)
         fout << '\n';
     }
     fout << '\n';
+    fout.close();
+}
+
+void resetFisierTraseu(void)
+{
+    ofstream fout;
+    fout.open("traseu.txt", ofstream::out | ofstream::trunc);
     fout.close();
 }
 
@@ -105,6 +113,7 @@ int main(void)
 {
     citireDate();
     afisareDateInitiale();
+    resetFisierTraseu();
 
     back(istart, jstart, 1);
 
