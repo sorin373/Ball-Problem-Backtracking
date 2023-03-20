@@ -66,7 +66,7 @@ void back(int i, int j, int k)
     {
         if (k == 1)
             traseu[i][j] = true;
-            
+
         tiparSolutie(k);
 
         if (k > maxim)
@@ -86,9 +86,9 @@ void back(int i, int j, int k)
         traseu[i][j] = true;
         if (tabla[i + 1][j] < tabla[i][j])
         {
-            traseu[i + 1][j] = true; // marcam pozitia pe unde am trecut
+            traseu[i + 1][j] = true;    // marcam pozitia pe unde am trecut
             back(i + 1, j, k + 1);
-            traseu[i + 1][j] = false; // resetam pozitia
+            traseu[i + 1][j] = false;   // resetam pozitia
         }
 
         if (tabla[i - 1][j] < tabla[i][j])
