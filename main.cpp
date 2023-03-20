@@ -81,9 +81,9 @@ void back(int i, int j, int k)
         traseu[i][j] = true;
         if (tabla[i + 1][j] < tabla[i][j])
         {
-            traseu[i + 1][j] = true; // marcam pozitia pe unde am trecut
+            traseu[i + 1][j] = true;    // marcam pozitia pe unde am trecut
             back(i + 1, j, k + 1);
-            traseu[i + 1][j] = false; // resetam pozitia
+            traseu[i + 1][j] = false;   // resetam pozitia
         }
 
         if (tabla[i - 1][j] < tabla[i][j])
@@ -118,12 +118,15 @@ int main(void)
     back(istart, jstart, 1);
 
     cout  << "_____________________________________" << "\n\n"
-          << "Numarul maxim de zone trecute este: " << maxim << '\n' << "Traseu: " << "\n\n";
+          << "Numarul maxim de zone trecute este: " 
+          << maxim << '\n' << "Traseu: " << "\n\n";
+
     for (unsigned int i = 1; i <= n; i++)
     {
         for (unsigned int j = 1; j <= m; j++)
             cout << traseuMax[i][j] << " ";
         cout << '\n';
     }
+    
     return 0;
 }
