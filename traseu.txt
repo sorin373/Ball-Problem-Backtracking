@@ -1,0 +1,8 @@
+Numarul zonelor trecute: 2
+Traseu:
+
+0 1 0 0 0 
+0 1 0 0 0 
+0 0 0 0 0 
+0 0 0 0 0 
+
