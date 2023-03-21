@@ -30,7 +30,6 @@ On line n+2 there are two numbers istart, jstart with the meaning in the stateme
 
 # Solution
 - Me and my colleague, Andreea, created a reccursive backtracking algorithm which explores all possible paths in each of the four directions (up, down, left, right), if the condition is met.
-<br>
 - We started the function by checking whether a solution was created or not. In the affirmative case not only did we calculate _maxim_ which at the end of the program will contain the maximum number of zones through which the ball passed, but we also made a copy of the path corresponding to the current _maxim_. This was because we wanted at the end of the program to display _maxim_ along side its path.
 ~~~
 void back(int i, int j, int k)
