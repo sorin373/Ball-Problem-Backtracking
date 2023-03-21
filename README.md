@@ -28,7 +28,7 @@ Pe linia n+2 se află două numere istart, jstart cu semnificația din enunț.
 - când bila ajunge pe o margine a tablei, se oprește acolo. Nu mai continua pe acea margine și nu se poate întoarce în interiorul tablei.
 - dacă nu este posibil ca bila să ajungă pe marginea tablei se va afișa un mesaj corespunzator.
 
-# Solution
+# Solutie
 - Pentru a rezolva această problemă, eu și colega mea, Andreea, am creat o funcție de backtracking recursiva care explorează toate căile posibile și valide pe unde poate mingea sa se miste(sus, jos, stânga, dreapta). Când se găsește o soluție (bila este pe marginea tablei) sau dacă nu mai sunt mișcări posibile, funcția se întoarce la pozitia anteriora valida și continuă verificarea direcțiilor rămase.
 - Am inceput funcția verificând dacă a fost găsită o soluție. In cazul afirmativ am calculat _maxim_ care la finalul programului va contine numarul maxim de zone prin care a trecut mingea. De asemenea, am facut o copie a traseului corespunzator maxim-ului curent, deoarece am vrut la sfârșitul programului să afișăm _maxim_ si drumul corespunzator acestuia.
 ~~~
