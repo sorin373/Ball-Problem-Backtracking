@@ -50,7 +50,7 @@ void back(int i, int j, int k)
         }
     }
 ~~~
-- If a solution was not found we continue on the _else_ case in which we validate every direction (up, down, right, left) the ball can move to. If we find a valid position, we mark it _true_ and we call the _back_ function with the updated coordinates of the ball. This will go on until we either found a solution or had no valid places to go to. On return the path would reset by setting the positions in the matrix to _false_.
+- If a solution was not found we continue on the _else_ case in which we validate every direction (up, down, right, left) the ball can move to. If we find a valid position, we mark it _true_ and we call the _back_ function with the updated coordinates of the ball. This will go on until we either findd a solution or have no valid places to go to. On return the path will reset by setting the positions in the matrix back to _false_.
 ~~~
     else
         {
