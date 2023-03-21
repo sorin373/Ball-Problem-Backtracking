@@ -16,9 +16,14 @@ On line n+2 there are two numbers istart, jstart with the meaning in the stateme
 ~~~
 
 # Output
-- On the screen it will be shown the maximum number of zones through which the ball can pass to reach one of the edges of the game board, including the starting zone.
+- The maximum number of zones through which the ball can pass to reach one of the edges of the game board, including the starting zone.
+- The path corresponding to _maxim_
 ~~~
 5
+0 0 0 0 0 
+0 1 0 0 0 
+0 1 1 1 1 
+0 0 0 0 0 
 ~~~
 
 # Restrictions and clarifications
@@ -34,7 +39,7 @@ On line n+2 there are two numbers istart, jstart with the meaning in the stateme
 ~~~
 void back(int i, int j, int k)
 {
-    if (solutie(i, j)) // daca am ajuns la margine -> soltutie -> calculam nr. maxim de mutari
+    if (solutie(i, j))
     {
         if (k == 1)
             Path[i][j] = true;
