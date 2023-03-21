@@ -16,7 +16,7 @@ On line n+2 there are two numbers istart, jstart with the meaning in the stateme
 ~~~
 
 # Output
-- On the screen it will be shows the maximum number of zones through which the ball can pass to reach one of the edges of the game board, including the starting zone.
+- On the screen it will be shown the maximum number of zones through which the ball can pass to reach one of the edges of the game board, including the starting zone.
 ~~~
 5
 ~~~
