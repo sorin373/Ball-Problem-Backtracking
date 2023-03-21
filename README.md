@@ -34,7 +34,7 @@ On line n+2 there are two numbers istart, jstart with the meaning in the stateme
 - if it is not possible for the ball to reach the edge of the board, a message will be displayed
 
 # Solution
-- Me and my colleague, Andreea, created a reccursive backtracking algorithm which explores all possible paths in each of the four directions (up, down, left, right), if the condition is met.
+- Me and my colleague, Andreea, created a reccursive backtracking algorithm which explores all possible paths in each of the four directions (up, down, left, right), if the imposed condition is met.
 - We started the function by checking whether a solution was created or not. In the affirmative case not only did we calculate _maxim_ which at the end of the program will contain the maximum number of zones through which the ball passed, but we also made a copy of the path corresponding to the current _maxim_. This was because we wanted at the end of the program to display _maxim_ along side its path.
 ~~~
 void back(int i, int j, int k)
@@ -55,7 +55,7 @@ void back(int i, int j, int k)
         }
     }
 ~~~
-- If a solution was not found we continue on the _else_ case in which we validate every direction (up, down, right, left) the ball can move to. If we find a valid position, we mark it _true_ and we call the _back_ function with the updated coordinates of the ball. This will go on until we either findd a solution or have no valid places to go to. On return the path will reset by setting the positions in the matrix back to _false_.
+- If a solution was not found we continue on the _else_ case in which we validate every direction (up, down, right, left) the ball can move to. If we find a valid position, we mark it as _true_ and we call the _back_ function with the updated coordinates of the ball. This will go on until we either find a solution or have no valid places to go to. On return the path will reset by setting the positions  the balled marked in the matrix as _true_ back to _false_.
 ~~~
     else
         {
