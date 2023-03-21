@@ -81,7 +81,7 @@ if (solutie(i, j))
         Path[i][j] = false;
     }
 ~~~
-- In addition to the problem's reqirements I also displayed all the paths created, in the file _traseu.txt_.
+- In addition to the problem's reqirements I also displayed all the paths created, in the file _path.txt_.
 ~~~
 Numarul zonelor trecute: 3
 Traseu:
