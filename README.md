@@ -29,7 +29,7 @@ On line n+2 there are two numbers istart, jstart with the meaning in the stateme
 - if it is not possible for the ball to reach the edge of the board, a message will be displayed
 
 # Solution
-- I created a reccursive backtracking algorithm which explores all possible paths in each of the four directions (up, down, left, right), if the condition is met.
+- Me and my colleague created a reccursive backtracking algorithm which explores all possible paths in each of the four directions (up, down, left, right), if the condition is met.
 ~~~
 {
         if (Board[i + 1][j] < Board[i][j])
@@ -61,7 +61,7 @@ On line n+2 there are two numbers istart, jstart with the meaning in the stateme
         }
 }
 ~~~
-- After a solution is found (the ball reached the edge of the board) I calculate _maxim_ which at the end of the program will contain the maximum number of zones through which the ball passed.
+- After a solution is found (the ball reached the edge of the board) we calculate _maxim_ which at the end of the program will contain the maximum number of zones through which the ball passed.
 ~~~
 if (solutie(i, j))
     {
@@ -81,7 +81,7 @@ if (solutie(i, j))
         Path[i][j] = false;
     }
 ~~~
-- In addition to the problem's reqirements I also displayed all the paths created, in the file _path.txt_.
+- In addition to the problem's reqirements we also displayed all the paths created, in the file _path.txt_.
 ~~~
 Numarul zonelor trecute: 3
 Traseu:
