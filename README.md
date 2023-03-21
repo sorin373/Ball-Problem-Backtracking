@@ -16,9 +16,14 @@ Pe linia n+2 se află două numere istart, jstart cu semnificația din enunț.
 ~~~
 
 # Date de ieşire
-- Pe ecran se va afisa numărul maxim de zone prin care poate să treacă bila pentru a ajunge pe una dintre marginile tablei de joc, inclusiv zona inițială.
+- Numărul maxim de zone prin care poate să treacă bila pentru a ajunge pe una dintre marginile tablei de joc, inclusiv zona inițială.
+- Traseul cu numarul maxim de mutari
 ~~~
 5
+0 0 0 0 0 
+0 1 0 0 0 
+0 1 1 1 1 
+0 0 0 0 0 
 ~~~
 
 # Restricţii şi precizări
@@ -50,7 +55,7 @@ void back(int i, int j, int k)
         }
     }
 ~~~
-- Dacă nu a fost găsită o soluție, continuăm cu celălalt caz în care validăm fiecare direcție (sus, jos, dreapta, stânga), în care se poate deplasa mingea. Dacă se găsește o poziție validă, o marcam cu _true_ și apelăm funcția înapoi cu coordonatele actualizate ale mingii. Acest lucru va continua până când, fie găsim o soluție (bila ajunge pe marginea tablei), fie nu mai există locuri valide în care să mutam mingea. La întoarcere, fiecare instanță a funcției _back_ va continua și va reseta matricea în care drumul este salvat prin setarea pozițiilor marcate anterior de minge cu _true_ înapoi cu _false_.
+- Dacă nu a fost găsită o soluție, continuăm cu celălalt caz în care validăm fiecare direcție (sus, jos, dreapta, stânga), în care se poate deplasa mingea. Dacă se găsește o poziție validă, o marcam cu _true_ și apelăm funcția înapoi cu coordonatele actualizate ale mingii. Acest lucru va continua până când, fie găsim o soluție (bila ajunge pe marginea tablei), fie nu mai există locuri valide în care să mutam mingea. La întoarcere, fiecare instanță a funcției _back_ va continua și va reseta matricea în care drumul este salvat prin setarea pozițiilor marcate anterior de minge în matrice cu _true_ înapoi cu _false_.
 ~~~
     else
         {
