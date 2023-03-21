@@ -29,41 +29,12 @@ Pe linia n+2 se află două numere istart, jstart cu semnificația din enunț.
 - dacă nu este posibil ca bila să ajungă pe marginea tablei se va afișa un mesaj corespunzator.
 
 # Solution
-- Me and my colleague, Andreea, created a reccursive backtracking algorithm which explores all possible paths in each of the four directions (up, down, left, right), if the condition is met.
+- Pentru a rezolva această problemă, eu și colega mea, Andreea, am creat o funcție de backtracking recursiva care explorează toate căile posibile și valide pe unde poate mingea sa se miste(sus, jos, stânga, dreapta). Când se găsește o soluție (bila este pe marginea tablei) sau dacă nu mai sunt mișcări posibile, funcția se întoarce la pozitia anteriora valida și continuă verificarea direcțiilor rămase.
+- Am inceput funcția verificând dacă a fost găsită o soluție. In cazul afirmativ am calculat _maxim_ care la finalul programului va contine numarul maxim de zone prin care a trecut mingea. De asemenea, am facut o copie a traseului corespunzator maxim-ului curent, deoarece am vrut la sfârșitul programului să afișăm _maxim_ si drumul corespunzator acestuia.
 ~~~
+void back(int i, int j, int k)
 {
-        if (Board[i + 1][j] < Board[i][j])
-        {
-            Path[i + 1][j] = true;
-            back(i + 1, j, k + 1);
-            Path[i + 1][j] = false;
-        }
-
-        if (Board[i - 1][j] < Board[i][j])
-        {
-            Path[i - 1][j] = true;
-            back(i - 1, j, k + 1);
-            Path[i - 1][j] = false;
-        }
-
-        if (Board[i][j + 1] < Board[i][j])
-        {
-            Path[i][j + 1] = true;
-            back(i, j + 1, k + 1);
-            Path[i][j + 1] = false;
-        }
-
-        if (Board[i][j - 1] < Board[i][j])
-        {
-            Path[i][j - 1] = true;
-            back(i, j - 1, k + 1);
-            Path[i][j - 1] = false;
-        }
-}
-~~~
-- After a solution is found (the ball reached the edge of the board) we calculate _maxim_ which at the end of the program will contain the maximum number of zones through which the ball passed.
-~~~
-if (solutie(i, j))
+    if (solutie(i, j))
     {
         if (k == 1)
             Path[i][j] = true;
@@ -77,11 +48,44 @@ if (solutie(i, j))
                 for (unsigned int j = 1; j <= m; j++)
                     PathMax[i][j] = Path[i][j];
         }
-
-        Path[i][j] = false;
     }
 ~~~
-- In addition to the problem's reqirements we also displayed all the paths created, in the file _path.txt_.
+- Dacă nu a fost găsită o soluție, continuăm cu celălalt caz în care validăm fiecare direcție (sus, jos, dreapta, stânga), în care se poate deplasa mingea. Dacă se găsește o poziție validă, o marcam cu _true_ și apelăm funcția înapoi cu coordonatele actualizate ale mingii. Acest lucru va continua până când, fie găsim o soluție (bila ajunge pe marginea tablei), fie nu mai există locuri valide în care să mutam mingea. La întoarcere, fiecare instanță a funcției _back_ va continua și va reseta matricea în care drumul este salvat prin setarea pozițiilor marcate anterior de minge în matrice cu _true_ înapoi cu _false_.
+~~~
+    else
+        {
+            Path[i][j] = true;
+            if (Board[i + 1][j] < Board[i][j])
+            {
+                Path[i + 1][j] = true;
+                back(i + 1, j, k + 1);
+                Path[i + 1][j] = false;
+            }
+
+            if (Board[i - 1][j] < Board[i][j])
+            {
+                Path[i - 1][j] = true;
+                back(i - 1, j, k + 1);
+                Path[i - 1][j] = false;
+            }
+
+            if (Board[i][j + 1] < Board[i][j])
+            {
+                Path[i][j + 1] = true;
+                back(i, j + 1, k + 1);
+                Path[i][j + 1] = false;
+            }
+
+            if (Board[i][j - 1] < Board[i][j])
+            {
+                Path[i][j - 1] = true;
+                back(i, j - 1, k + 1);
+                Path[i][j - 1] = false;
+            }
+        }
+}
+~~~
+- Pe lângă cerințele problemei, am afișat și toate căile valide create, în fișierul path.txt.
 ~~~
 Numarul zonelor trecute: 3
 Traseu:
