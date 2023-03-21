@@ -1,11 +1,11 @@
-# Cerinţa
-- Se consideră o tablă de joc de formă dreptunghiulară, împărţită în n lini şi m coloane. Se obţin astfel n*m zone şi se cunoaște înălțimea fiecărei zone. La o poziție cunoscută – linia istart, coloana jstart se află o bilă care se poate deplasa pe o poziție vecină (sus, jos, stânga, dreapta) doar dacă înălțimea poziției vecine este strict mai mică decât înălțimea poziției curente.
-- Determinați numărul maxim de zone prin care poate să treacă bila pentru a ajunge pe una dintre marginile tablei de joc.
+# Cerinta
+- Se considera o tabla de jocs de forma dreptunghiulara, impartita in n lini si m coloane. Se obtin astfel n*m zone si se cunoaste inaltimea fiecarei zone. La o pozitie cunoscuta – linia istart, coloana jstart se afla o bila care se poate deplasa pe o pozitie vecina (sus, jos, stanga, dreapta) doar daca inaltimea pozitiei vecine este strict mai mica decat inaltimea pozitiei curente.
+- Determinati numarul maxim de zone prin care poate sa treaca bila pentru a ajunge pe una dintre marginile tablei de joc.
 
 
 # Date de intrare
-- Fişierul de intrare _board.txt_ conţine pe prima linie numerele n și m. Următoarele n linii conțin câte m numere naturale strict pozitive reprezentând înălțimile fiecărei zone.
-Pe linia n+2 se află două numere istart, jstart cu semnificația din enunț.
+- Fisierul de intrare _board.txt_ contine pe prima linie numerele n si m. Urmatoarele n linii contin cate m numere naturale strict pozitive reprezentand inaltimile fiecarei zone.
+Pe linia n+2 se afla doua numere istart, jstart cu semnificatia din enunt.
 ~~~
 4 5
 4 4 3 1 5
@@ -15,8 +15,8 @@ Pe linia n+2 se află două numere istart, jstart cu semnificația din enunț.
 2 2
 ~~~
 
-# Date de ieşire
-- Numărul maxim de zone prin care poate să treacă bila pentru a ajunge pe una dintre marginile tablei de joc, inclusiv zona inițială.
+# Date de iesire
+- Numarul maxim de zone prin care poate sa treaca bila pentru a ajunge pe una dintre marginile tablei de joc, inclusiv zona initiala.
 - Traseul cu numarul maxim de mutari
 ~~~
 5
@@ -26,16 +26,16 @@ Pe linia n+2 se află două numere istart, jstart cu semnificația din enunț.
 0 0 0 0 0 
 ~~~
 
-# Restricţii şi precizări
+# Restrictii si precizari
 - 1 ≤ n, m ≤ 20
-- liniile și coloanele sunt numerotate de la 1
-- înălțimea fiecărei zone este cuprinsă între 1 și 50
-- când bila ajunge pe o margine a tablei, se oprește acolo. Nu mai continua pe acea margine și nu se poate întoarce în interiorul tablei.
-- dacă nu este posibil ca bila să ajungă pe marginea tablei se va afișa un mesaj corespunzator.
+- liniile si coloanele sunt numerotate de la 1
+- inaltimea fiecarei zone este cuprinsa intre 1 si 50
+- cand bila ajunge pe o margine a tablei, se opreste acolo. Nu mai continua pe acea margine si nu se poate intoarce in interiorul tablei.
+- daca nu este posibil ca bila sa ajunga pe marginea tablei se va afisa un mesaj corespunzator.
 
-# Soluție
-- Pentru a rezolva această problemă, eu și colega mea, Andreea, am creat o funcție de backtracking recursiva care explorează toate căile posibile și valide pe unde poate mingea sa se miste(sus, jos, stânga, dreapta). Când se găsește o soluție (bila este pe marginea tablei) sau dacă nu mai sunt mișcări posibile, funcția se întoarce la pozitia anteriora valida și continuă verificarea direcțiilor rămase.
-- Am inceput funcția verificând dacă a fost găsită o soluție. In cazul afirmativ am calculat _maxim_ care la finalul programului va contine numarul maxim de zone prin care a trecut mingea. De asemenea, am facut o copie a traseului corespunzator maxim-ului curent, deoarece am vrut la sfârșitul programului să afișăm _maxim_ si drumul corespunzator acestuia.
+# Solutie
+- Pentru a rezolva aceasta problema, eu si colega mea, Andreea, am creat o functie de backtracking recursiva care exploreaza toate caile posibile si valide pe unde poate mingea sa se miste(sus, jos, stanga, dreapta). Cand se gaseste o solutie (bila este pe marginea tablei) sau daca nu mai sunt miscari posibile, functia se intoarce la pozitia anteriora valida si continua verificarea directiilor ramase.
+- Am inceput functia verificand daca a fost gasita o solutie. In cazul afirmativ am calculat _maxim_ care la finalul programului va contine numarul maxim de zone prin care a trecut mingea. De asemenea, am facut o copie a traseului corespunzator maxim-ului curent, deoarece am vrut la sfarsitul programului sa afisam _maxim_ si drumul corespunzator acestuia.
 ~~~
 void back(int i, int j, int k)
 {
@@ -55,7 +55,7 @@ void back(int i, int j, int k)
         }
     }
 ~~~
-- Dacă nu a fost găsită o soluție, continuăm cu celălalt caz în care validăm fiecare direcție (sus, jos, dreapta, stânga), în care se poate deplasa mingea. Dacă se găsește o poziție validă, o marcam cu _true_ și apelăm funcția înapoi cu coordonatele actualizate ale mingii. Acest lucru va continua până când, fie găsim o soluție (bila ajunge pe marginea tablei), fie nu mai există locuri valide în care să mutam mingea. La întoarcere, fiecare instanță a funcției _back_ va continua și va reseta matricea în care drumul este salvat prin setarea pozițiilor marcate anterior de minge în matrice cu _true_ înapoi cu _false_.
+- Daca nu a fost gasita o solutie, continuam cu celalalt caz in care validam fiecare directie (sus, jos, dreapta, stanga), in care se poate deplasa mingea. Daca se gaseste o pozitie valida, o marcam cu _true_ si apelam functia inapoi cu coordonatele actualizate ale mingii. Acest lucru va continua pana cand, fie gasim o solutie (bila ajunge pe marginea tablei), fie nu mai exista locuri valide in care sa mutam mingea. La intoarcere, fiecare instanta a functiei _back_ va continua si va reseta matricea in care drumul este salvat prin setarea pozitiilor marcate anterior de minge in matrice cu _true_ inapoi cu _false_.
 ~~~
     else
         {
@@ -90,7 +90,7 @@ void back(int i, int j, int k)
         }
 }
 ~~~
-- Pe lângă cerințele problemei, am afișat și toate căile valide create, în fișierul path.txt.
+- Pe langa cerintele problemei, am afisat si toate caile valide create, in fisierul path.txt.
 ~~~
 Numarul zonelor trecute: 3
 Traseu:
