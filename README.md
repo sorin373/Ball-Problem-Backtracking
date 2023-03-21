@@ -1,11 +1,11 @@
-# Problem Question
-- Consider a rectangular game board, divided into n lines and m columns. In this way, n*m zones are obtained and the height of each zone is known. At a known position - line istart, column jstart there is a ball that can move to a neighboring position (up, down, left, right) only if the height of the neighboring position is strictly lower than the height of the current position.
-- Determine the maximum number of zones the ball can pass through to reach one of the edges of the game board.
+# Cerinţa
+- Se consideră o tablă de joc de formă dreptunghiulară, împărţită în n lini şi m coloane. Se obţin astfel n*m zone şi se cunoaște înălțimea fiecărei zone. La o poziție cunoscută – linia istart, coloana jstart se află o bilă care se poate deplasa pe o poziție vecină (sus, jos, stânga, dreapta) doar dacă înălțimea poziției vecine este strict mai mică decât înălțimea poziției curente.
+- Determinați numărul maxim de zone prin care poate să treacă bila pentru a ajunge pe una dintre marginile tablei de joc.
 
 
-# Input
-- The input file _board.txt_ contains the numbers n and m on the first line. The next n lines contain m strictly positive natural numbers representing the heights of each zone.
-On line n+2 there are two numbers istart, jstart with the meaning in the statement.
+# Date de intrare
+- Fişierul de intrare _board.txt_ conţine pe prima linie numerele n și m. Următoarele n linii conțin câte m numere naturale strict pozitive reprezentând înălțimile fiecărei zone.
+Pe linia n+2 se află două numere istart, jstart cu semnificația din enunț.
 ~~~
 4 5
 4 4 3 1 5
@@ -15,18 +15,18 @@ On line n+2 there are two numbers istart, jstart with the meaning in the stateme
 2 2
 ~~~
 
-# Output
-- On the screen it will be shown the maximum number of zones through which the ball can pass to reach one of the edges of the game board, including the starting zone.
+# Date de ieşire
+- Pe ecran se va afisa numărul maxim de zone prin care poate să treacă bila pentru a ajunge pe una dintre marginile tablei de joc, inclusiv zona inițială.
 ~~~
 5
 ~~~
 
-# Restrictions and clarifications
+# Restricţii şi precizări
 - 1 ≤ n, m ≤ 20
-- rows and columns are numbered from 1
-- the height of each zone is between 1 and 50
-- when the ball reaches an edge of the board, it stops there. It does not continue on that edge and cannot return to the inside of the board.
-- if it is not possible for the ball to reach the edge of the board, a message will be displayed
+- liniile și coloanele sunt numerotate de la 1
+- înălțimea fiecărei zone este cuprinsă între 1 și 50
+- când bila ajunge pe o margine a tablei, se oprește acolo. Nu mai continua pe acea margine și nu se poate întoarce în interiorul tablei.
+- dacă nu este posibil ca bila să ajungă pe marginea tablei se va afișa un mesaj corespunzator.
 
 # Solution
 - Me and my colleague, Andreea, created a reccursive backtracking algorithm which explores all possible paths in each of the four directions (up, down, left, right), if the condition is met.
