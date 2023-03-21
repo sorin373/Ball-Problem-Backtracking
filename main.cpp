@@ -6,7 +6,7 @@ using namespace std;
 int tabla[25][25], n, m, istart, jstart, maxim;
 bool traseu[25][25], traseuMax[25][25];
 
-void citireDate(void)
+void citireDate()
 {
     ifstream fin("tabla.txt");
     fin >> n >> m;
@@ -17,7 +17,7 @@ void citireDate(void)
     fin.close();
 }
 
-void afisareDateInitiale(void)
+void afisareDateInitiale()
 {
     cout << "Coordonate inceput: (" << istart << ", " << jstart << ")\n";
     for (unsigned int i = 1; i <= n; i++)
@@ -29,11 +29,11 @@ void afisareDateInitiale(void)
     cout << '\n';
 }
 
-bool solutie(int i, int j)
+void resetFisierTraseu()
 {
-    if (i == n || i == 1 || j == m || j == 1) // verifica daca bila a ajuns pe margine
-        return true;
-    return false;
+    ofstream fout;
+    fout.open("traseu.txt", ofstream::out | ofstream::trunc);
+    fout.close();
 }
 
 void tiparSolutie(int k)
@@ -53,11 +53,11 @@ void tiparSolutie(int k)
     fout.close();
 }
 
-void resetFisierTraseu(void)
+bool solutie(int i, int j)
 {
-    ofstream fout;
-    fout.open("traseu.txt", ofstream::out | ofstream::trunc);
-    fout.close();
+    if (i == n || i == 1 || j == m || j == 1) // verifica daca bila a ajuns pe margine
+        return true;
+    return false;
 }
 
 void back(int i, int j, int k)
@@ -114,7 +114,7 @@ void back(int i, int j, int k)
     }
 }
 
-int main(void)
+int main()
 {
     citireDate();
     afisareDateInitiale();
