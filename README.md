@@ -29,7 +29,7 @@ On line n+2 there are two numbers istart, jstart with the meaning in the stateme
 - if it is not possible for the ball to reach the edge of the board, a message will be displayed
 
 # Solution
-- Me and my colleague created a reccursive backtracking algorithm which explores all possible paths in each of the four directions (up, down, left, right), if the condition is met.
+- Me and my colleague, Andreea created a reccursive backtracking algorithm which explores all possible paths in each of the four directions (up, down, left, right), if the condition is met.
 ~~~
 {
         if (Board[i + 1][j] < Board[i][j])
