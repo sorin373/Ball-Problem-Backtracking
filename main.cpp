@@ -8,7 +8,7 @@ bool Path[25][25], PathMax[25][25];
 
 void citireDate()
 {
-    ifstream fin("board.txt");
+    ifstream fin("tabla.txt");
     fin >> n >> m;
     for (unsigned int i = 1; i <= n; i++)
         for (unsigned int j = 1; j <= m; j++)
@@ -32,14 +32,14 @@ void afisareDateInitiale()
 void resetFisierTraseu()
 {
     ofstream fout;
-    fout.open("path.txt", ofstream::out | ofstream::trunc);
+    fout.open("traseu.txt", ofstream::out | ofstream::trunc);
     fout.close();
 }
 
 void tiparSolutie(int k)
 {
     ofstream fout;
-    fout.open("path.txt", ios::app);
+    fout.open("traseu.txt", ios::app);
     fout << "Numarul zonelor trecute: " << k << '\n'
          << "Traseu:"
          << "\n\n";
