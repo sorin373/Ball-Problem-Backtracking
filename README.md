@@ -1,5 +1,5 @@
 # Cerinta
-- Se considera o tabla de jocs de forma dreptunghiulara, impartita in n lini si m coloane. Se obtin astfel n*m zone si se cunoaste inaltimea fiecarei zone. La o pozitie cunoscuta – linia istart, coloana jstart se afla o bila care se poate deplasa pe o pozitie vecina (sus, jos, stanga, dreapta) doar daca inaltimea pozitiei vecine este strict mai mica decat inaltimea pozitiei curente.
+- Se considera o tabla de joc de forma dreptunghiulara, impartita in n lini si m coloane. Se obtin astfel n*m zone si se cunoaste inaltimea fiecarei zone. La o pozitie cunoscuta – linia istart, coloana jstart se afla o bila care se poate deplasa pe o pozitie vecina (sus, jos, stanga, dreapta) doar daca inaltimea pozitiei vecine este strict mai mica decat inaltimea pozitiei curente.
 - Determinati numarul maxim de zone prin care poate sa treaca bila pentru a ajunge pe una dintre marginile tablei de joc.
 
 
