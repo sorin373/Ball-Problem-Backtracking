@@ -42,7 +42,7 @@ void back(int i, int j, int k)
     if (solutie(i, j))
     {
         if (k == 1)
-            Path[i][j] = true;
+            traseu[i][j] = true;
 
         tiparSolutie(k);
 
@@ -51,43 +51,43 @@ void back(int i, int j, int k)
             maxim = k;
             for (unsigned int i = 1; i <= n; i++)
                 for (unsigned int j = 1; j <= m; j++)
-                    PathMax[i][j] = Path[i][j];
+                    traseuMax[i][j] = traseu[i][j];
         }
     }
 ~~~
 - Daca nu a fost gasita o solutie, continuam cu celalalt caz in care validam fiecare directie (sus, jos, dreapta, stanga), in care se poate deplasa mingea. Daca se gaseste o pozitie valida, o marcam cu _true_ si apelam functia inapoi cu coordonatele actualizate ale mingii. Acest lucru va continua pana cand, fie gasim o solutie (bila ajunge pe marginea tablei), fie nu mai exista locuri valide in care sa mutam mingea. La intoarcere, fiecare instanta a functiei _back_ va continua si va reseta matricea in care drumul este salvat prin setarea pozitiilor marcate anterior de minge in matrice cu _true_ inapoi cu _false_.
 ~~~
     else
+    {
+        traseu[i][j] = true;
+        if (tabla[i + 1][j] < tabla[i][j])
         {
-            Path[i][j] = true;
-            if (Board[i + 1][j] < Board[i][j])
-            {
-                Path[i + 1][j] = true;
-                back(i + 1, j, k + 1);
-                Path[i + 1][j] = false;
-            }
-
-            if (Board[i - 1][j] < Board[i][j])
-            {
-                Path[i - 1][j] = true;
-                back(i - 1, j, k + 1);
-                Path[i - 1][j] = false;
-            }
-
-            if (Board[i][j + 1] < Board[i][j])
-            {
-                Path[i][j + 1] = true;
-                back(i, j + 1, k + 1);
-                Path[i][j + 1] = false;
-            }
-
-            if (Board[i][j - 1] < Board[i][j])
-            {
-                Path[i][j - 1] = true;
-                back(i, j - 1, k + 1);
-                Path[i][j - 1] = false;
-            }
+            traseu[i + 1][j] = true;
+            back(i + 1, j, k + 1);
+            traseu[i + 1][j] = false;
         }
+
+        if (tabla[i - 1][j] < tabla[i][j])
+        {
+            traseu[i - 1][j] = true;
+            back(i - 1, j, k + 1);
+            traseu[i - 1][j] = false;
+        }
+
+        if (tabla[i][j + 1] < tabla[i][j])
+        {
+            traseu[i][j + 1] = true;
+            back(i, j + 1, k + 1);
+            traseu[i][j + 1] = false;
+        }
+
+        if (tabla[i][j - 1] < tabla[i][j])
+        {
+            traseu[i][j - 1] = true;
+            back(i, j - 1, k + 1);
+            traseu[i][j - 1] = false;
+        }
+    }
 }
 ~~~
 - Pe langa cerintele problemei, am afisat si toate caile valide create, in fisierul path.txt.
