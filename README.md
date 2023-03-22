@@ -4,7 +4,7 @@
 
 
 # Date de intrare
-- Fisierul de intrare _board.txt_ contine pe prima linie numerele n si m. Urmatoarele n linii contin cate m numere naturale strict pozitive reprezentand inaltimile fiecarei zone.
+- Fisierul de intrare _tabla.txt_ contine pe prima linie numerele n si m. Urmatoarele n linii contin cate m numere naturale strict pozitive reprezentand inaltimile fiecarei zone.
 Pe linia n+2 se afla doua numere istart, jstart cu semnificatia din enunt.
 ~~~
 4 5
@@ -90,7 +90,7 @@ void back(int i, int j, int k)
     }
 }
 ~~~
-- Pe langa cerintele problemei, am afisat si toate caile valide create, in fisierul path.txt.
+- Pe langa cerintele problemei, am afisat si toate caile valide create, in fisierul _traseu.txt_.
 ~~~
 Numarul zonelor trecute: 3
 Traseu:
