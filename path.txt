@@ -1,21 +1,21 @@
-Numarul zonelor trecute: 3
-Traseu:
+Number of areas passed: 3
+Path:
 
 0 0 0 0 0 
 0 1 0 0 0 
 0 1 0 0 0 
 0 1 0 0 0 
 
-Numarul zonelor trecute: 5
-Traseu:
+Number of areas passed: 5
+Path:
 
 0 0 0 0 0 
 0 1 0 0 0 
 0 1 1 1 1 
 0 0 0 0 0 
 
-Numarul zonelor trecute: 2
-Traseu:
+Number of areas passed: 2
+Path:
 
 0 1 0 0 0 
 0 1 0 0 0 

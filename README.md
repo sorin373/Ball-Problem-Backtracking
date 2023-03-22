@@ -23,7 +23,7 @@ On line n+2 there are two numbers istart, jstart with the meaning in the stateme
 0 0 0 0 0 
 0 1 0 0 0 
 0 1 1 1 1 
-0 0 0 0 0 
+0 0 0 0 0
 ~~~
 
 # Restrictions and clarifications
@@ -39,12 +39,12 @@ On line n+2 there are two numbers istart, jstart with the meaning in the stateme
 ~~~
 void back(int i, int j, int k)
 {
-    if (solutie(i, j))
+    if (solution(i, j))
     {
         if (k == 1)
             Path[i][j] = true;
 
-        tiparSolutie(k);
+        displaySolution(k);
 
         if (k > maxim)
         {
@@ -92,27 +92,28 @@ void back(int i, int j, int k)
 ~~~
 - In addition to the problem's reqirements we also displayed all the valid paths created, in the file _path.txt_.
 ~~~
-Numarul zonelor trecute: 3
-Traseu:
+Number of areas passed: 3
+Path:
 
 0 0 0 0 0 
 0 1 0 0 0 
 0 1 0 0 0 
 0 1 0 0 0 
 
-Numarul zonelor trecute: 5
-Traseu:
+Number of areas passed: 5
+Path:
 
 0 0 0 0 0 
 0 1 0 0 0 
 0 1 1 1 1 
 0 0 0 0 0 
 
-Numarul zonelor trecute: 2
-Traseu:
+Number of areas passed: 2
+Path:
 
 0 1 0 0 0 
 0 1 0 0 0 
 0 0 0 0 0 
 0 0 0 0 0 
+
 ~~~

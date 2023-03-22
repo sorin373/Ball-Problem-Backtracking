@@ -3,10 +3,10 @@
 
 using namespace std;
 
-int Board[25][25], n, m, istart, jstart, maxim;
-bool Path[25][25], PathMax[25][25];
+int Board[20][20], n, m, istart, jstart, maxim;
+bool Path[20][20], PathMax[20][20];
 
-void citireDate()
+void input()
 {
     ifstream fin("board.txt");
     fin >> n >> m;
@@ -17,9 +17,9 @@ void citireDate()
     fin.close();
 }
 
-void afisareDateInitiale()
+void displayInitialData()
 {
-    cout << "Coordonate inceput: (" << istart << ", " << jstart << ")\n";
+    cout << "Start coordinates: (" << istart << ", " << jstart << ")\n";
     for (unsigned int i = 1; i <= n; i++)
     {
         for (unsigned int j = 1; j <= m; j++)
@@ -29,19 +29,19 @@ void afisareDateInitiale()
     cout << '\n';
 }
 
-void resetFisierTraseu()
+void resetPathFile()
 {
     ofstream fout;
     fout.open("path.txt", ofstream::out | ofstream::trunc);
     fout.close();
 }
 
-void tiparSolutie(int k)
+void displaySolution(int k)
 {
     ofstream fout;
     fout.open("path.txt", ios::app);
-    fout << "Numarul zonelor trecute: " << k << '\n'
-         << "Traseu:"
+    fout << "Number of areas passed: " << k << '\n'
+         << "Path:"
          << "\n\n";
     for (unsigned int i = 1; i <= n; i++)
     {
@@ -53,21 +53,21 @@ void tiparSolutie(int k)
     fout.close();
 }
 
-bool solutie(int i, int j)
+bool solution(int i, int j)
 {
-    if (i == n || i == 1 || j == m || j == 1) // verifica daca bila a ajuns pe margine
+    if (i == n || i == 1 || j == m || j == 1) // check if the ball has reached the edge
         return true;
     return false;
 }
 
 void back(int i, int j, int k)
 {
-    if (solutie(i, j)) // daca am ajuns la margine -> soltutie -> calculam nr. maxim de mutari
+    if (solution(i, j)) // if we reached the edge -> solution -> calculate maximum number of moves
     {
         if (k == 1)
             Path[i][j] = true;
 
-        tiparSolutie(k);
+        displaySolution(k);
 
         if (k > maxim)
         {
@@ -79,14 +79,13 @@ void back(int i, int j, int k)
     }
     else
     {
-        // se apeleaza recursiv functia back cu noile coordonate si nr de pasi actualizat
-        // daca pozitia este valida
+        // the back function is called recursively with the new coordinates and updated number of steps if the position is valid
         Path[i][j] = true;
         if (Board[i + 1][j] < Board[i][j])
         {
-            Path[i + 1][j] = true;    // marcam pozitia pe unde am trecut
+            Path[i + 1][j] = true;    // mark the position
             back(i + 1, j, k + 1);
-            Path[i + 1][j] = false;   // resetam pozitia
+            Path[i + 1][j] = false;   // reset position
         }
 
         if (Board[i - 1][j] < Board[i][j])
@@ -114,16 +113,16 @@ void back(int i, int j, int k)
 
 int main()
 {
-    citireDate();
-    afisareDateInitiale();
-    resetFisierTraseu();
+    input();
+    displayInitialData();
+    resetPathFile();
 
     back(istart, jstart, 1);
 
     if (maxim > 0)
     {
-        cout << "Numarul maxim de zone trecute este: " << maxim << '\n'
-             << "Traseu: "
+        cout << "The maximum no. of areas passed by the ball is: " << maxim << '\n'
+             << "Path: "
              << "\n\n";
 
         for (unsigned int i = 1; i <= n; i++)
@@ -134,6 +133,6 @@ int main()
         }
     }
     else
-        cout << "Nu exista trasee posibile!";
+        cout << "There are no possible paths!";
     return 0;
 }
