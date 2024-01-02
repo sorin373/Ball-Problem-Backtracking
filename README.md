@@ -6,7 +6,7 @@
 # Input
 - The input file _board.txt_ contains the numbers n and m on the first line. The next n lines contain m strictly positive natural numbers representing the heights of each zone.
 On line n+2 there are two numbers istart, jstart with the meaning in the statement.
-~~~
+~~~C++
 4 5
 4 4 3 1 5
 8 7 2 1 3
@@ -18,7 +18,7 @@ On line n+2 there are two numbers istart, jstart with the meaning in the stateme
 # Output
 - The maximum number of zones through which the ball can pass to reach one of the edges of the game board, including the starting zone.
 - The path corresponding to _maxim_
-~~~
+~~~C++
 5
 0 0 0 0 0 
 0 1 0 0 0 
@@ -36,7 +36,7 @@ On line n+2 there are two numbers istart, jstart with the meaning in the stateme
 # Solution
 - To solve this problem, me and my colleague, Andreea, created a reccursive backtracking function which explores all possible and valid paths in each of the four directions (up, down, left, right). When a solution is found (the ball is on the edge of the board) or if there are no more possible moves, the function goes back to the previous valid spot and continues checking the remaining directions.
 - We started the function by checking whether a solution was found. In the affirmative case not only did we calculate _maxim_ which at the end of the program will contain the maximum number of zones through which the ball passed, but we also made a copy of the path corresponding to the current _maxim_. This was because we wanted at the end of the program to display _maxim_ along side its path.
-~~~
+~~~C++
 void back(int i, int j, int k)
 {
     if (solution(i, j))
@@ -56,7 +56,7 @@ void back(int i, int j, int k)
     }
 ~~~
 - If a solution was not found we continue on the _else_ case in which we validate every direction (up, down, right, left) the ball can move to. If a valid position is found, we mark it as _true_ and we call the _back_ function with the updated coordinates of the ball. This will go on until we either find a solution (the ball is on the edge of the board) or there are no more valid places to go to. On return every instance of the _back_ function will continue and will reset the matrix in which the path is saved by setting the positions the ball marked in the matrix as _true_ back to _false_.
-~~~
+~~~C++
     else
         {
             Path[i][j] = true;
@@ -91,7 +91,7 @@ void back(int i, int j, int k)
 }
 ~~~
 - In addition to the problem's reqirements we also displayed all the valid paths created, in the file _path.txt_.
-~~~
+~~~C++
 Number of areas passed: 3
 Path:
 
